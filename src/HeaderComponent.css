@@ -1,0 +1,22 @@
+.header-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: solid 1px black;
+    gap: 8px;
+}
+
+.logo {
+    width: auto;
+    height: 2rem;
+}
+
+.dropdown {
+    background-color: transparent;
+}
