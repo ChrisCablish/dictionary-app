@@ -1,3 +1,4 @@
+import React from "react";
 import DropdownButton from "./DropdownButton";
 import logo from "./starter-code/assets/images/logo.svg"; // import the image
 import nightMode from "./starter-code/assets/images/icon-moon.svg"; // import the image
@@ -8,17 +9,22 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Check from "./CheckComponent";
 
-export default function Header() {
+export default function Header({ setFont, font, setCssClass }) {
   return (
     <Container className="header">
       <Row>
         <Col className="header-left">
-          <img src={logo} className="logo"></img>
-          <DropdownButton className="dropdown" />
+          <img src={logo} alt="" className="logo"></img>
+          <DropdownButton
+            className="dropdown"
+            font={font}
+            setFont={setFont}
+            setCssClass={setCssClass}
+          />
         </Col>
         <Col xs="auto" className="header-right">
           <Check />
-          <img src={nightMode}></img>
+          <img alt="" src={nightMode}></img>
         </Col>
       </Row>
     </Container>

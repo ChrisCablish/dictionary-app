@@ -1,6 +1,40 @@
+:root {
+  --font-sans-serif: "Arial", sans-serif;
+  --font-serif: "Times New Roman", serif;
+  --font-mono: "Courier New", monospace;
+}
+
+.sans {
+  font-family: var(--font-sans-serif);
+}
+
+.serif {
+  font-family: var(--font-serif);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
 .App {
   text-align: center;
   padding: 1.5rem;
+}
+
+/* search section */
+.userInput {
+  border: none;
+  width: 100%;
+}
+
+.userInput:focus {
+  outline: none;
+}
+
+.search-section {
+  border: 1px solid black;
+  outline: none;
+  border-radius: 8px;
 }
 
 

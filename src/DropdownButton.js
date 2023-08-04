@@ -1,28 +1,35 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import "./DropdownButton.css";
-import { useState } from "react";
 
-export default function DropdownButton() {
-  const [userChoice, setUserChoice] = useState("Sans Serif ");
-
-  const handleSelect = (e) => {
-    setUserChoice(e);
+export default function DropdownButton({ setFont, font, setCssClass }) {
+  const fontSelectHandler = (text, css) => {
+    setFont(text);
+    setCssClass(css);
   };
+
+  const fontOptions = [
+    { id: 1, text: "Sans Serif", cssClass: "sans" },
+    { id: 2, text: "Serif", cssClass: "serif" },
+    { id: 3, text: "Mono", cssClass: "mono" },
+  ];
 
   return (
     <Dropdown>
       <Dropdown.Toggle variant="success" id="dropdown-basic">
-        {userChoice}
+        {font}
       </Dropdown.Toggle>
-
       <Dropdown.Menu>
-        <Dropdown.Item onClick={() => handleSelect("Sans Serif")}>
-          Sans Serif
-        </Dropdown.Item>
-        <Dropdown.Item onClick={() => handleSelect("Serif")}>
-          Serif
-        </Dropdown.Item>
-        <Dropdown.Item onClick={() => handleSelect("Mono")}>Mono</Dropdown.Item>
+        {/* for each font option, generate a new dropdown menu item */}
+        {fontOptions.map((font) => {
+          return (
+            <Dropdown.Item
+              onClick={() => fontSelectHandler(font.text, font.cssClass)}
+              key={font.id}
+            >
+              {font.text}
+            </Dropdown.Item>
+          );
+        })}
       </Dropdown.Menu>
     </Dropdown>
   );

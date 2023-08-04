@@ -3,7 +3,7 @@ import "./CheckComponent.css";
 
 export default function Check() {
   return (
-    <Form id="check">
+    <Form>
       <Form.Check // prettier-ignore
         type="switch"
         id="custom-switch"
