@@ -5,8 +5,7 @@ import Col from "react-bootstrap/Col";
 import searchIcon from "./starter-code/assets/images/icon-search.svg";
 import { useState } from "react";
 import WordComponent from "./WordComponent";
-import NounComponent from "./NounComponent";
-import VerbComponent from "./VerbComponent";
+import TypeComponent from "./TypeComponent";
 import "./App.scss";
 
 function App() {
@@ -39,6 +38,8 @@ function App() {
   //     (meaning) => meaning.partOfSpeech === "noun"
   //   );
   // };
+
+  const types = ["noun", "verb", "adjective"];
 
   const checkIfTypeExists = (type) => {
     return responseObject.some((object) => {
@@ -82,12 +83,17 @@ function App() {
         </Row>
       </Container>
       {responseObject && <WordComponent responseObject={responseObject} />}
-      {responseObject && checkIfTypeExists("noun") && (
-        <NounComponent responseObject={responseObject} />
+
+      {responseObject && checkIfTypeExists(types[0]) && (
+        <TypeComponent responseObject={responseObject} type={types[0]} />
       )}
 
-      {responseObject && checkIfTypeExists("verb") && (
-        <VerbComponent responseObject={responseObject} />
+      {responseObject && checkIfTypeExists(types[1]) && (
+        <TypeComponent responseObject={responseObject} type={types[1]} />
+      )}
+
+      {responseObject && checkIfTypeExists(types[2]) && (
+        <TypeComponent responseObject={responseObject} type={types[2]} />
       )}
     </div>
   );
