@@ -9,7 +9,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Check from "./CheckComponent";
 
-export default function Header({ setFont, font, setCssClass }) {
+export default function Header({ setFont, font, setCssClass, setDisplayMode }) {
   return (
     <Container className="header">
       <Row>
@@ -23,7 +23,7 @@ export default function Header({ setFont, font, setCssClass }) {
           />
         </Col>
         <Col xs="auto" className="header-right">
-          <Check />
+          <Check setDisplayMode={setDisplayMode} />
           <img alt="" src={nightMode}></img>
         </Col>
       </Row>

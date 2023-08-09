@@ -1,0 +1,19 @@
+.word-and-pron,
+.audio-column {
+  border: 1px solid black;
+}
+
+.word-and-pron {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.audio-column {
+  padding: 0;
+  button {
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+  }
+}

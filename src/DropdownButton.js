@@ -1,5 +1,5 @@
 import Dropdown from "react-bootstrap/Dropdown";
-import "./DropdownButton.css";
+import "./DropdownButton.scss";
 
 export default function DropdownButton({ setFont, font, setCssClass }) {
   const fontSelectHandler = (text, css) => {

@@ -2,6 +2,7 @@
   --font-sans-serif: "Arial", sans-serif;
   --font-serif: "Times New Roman", serif;
   --font-mono: "Courier New", monospace;
+  --bs-btn-color: black;
 }
 
 .sans {
@@ -14,6 +15,16 @@
 
 .mono {
   font-family: var(--font-mono);
+}
+
+.dark-mode {
+  color: white;
+  background-color: black;
+}
+
+.light-mode {
+  color: black;
+  background-color: white;
 }
 
 .App {
@@ -36,5 +47,3 @@
   outline: none;
   border-radius: 8px;
 }
-
-
