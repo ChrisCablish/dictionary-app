@@ -1,10 +1,10 @@
 import MeaningComponent from "./MeaningComponent";
+import SynonymComponent from "./SynonymComponent";
 import React from "react";
 import "./TypeComponent.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { type } from "@testing-library/user-event/dist/type";
 
 export default function TypeComponent({ responseObject, type }) {
   return (
@@ -12,10 +12,7 @@ export default function TypeComponent({ responseObject, type }) {
       <h1>{type}</h1>
       <h2>meanings</h2>
       <MeaningComponent responseObject={responseObject} type={type} />
-      <div className="synonyms">
-        <h2>Synonyms</h2>
-        <p className="synonyms-displayed"></p>
-      </div>
+      <SynonymComponent responseObject={responseObject} type={type} />
     </Container>
 
     // <div className="typeComponent">
