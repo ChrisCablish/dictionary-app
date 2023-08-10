@@ -1,4 +1,5 @@
 import React from "react";
+import "./SynonymComponent.scss";
 
 export default function SynonymComponent({ responseObject, type }) {
   // Function to extract the synonyms based on the type
@@ -17,11 +18,13 @@ export default function SynonymComponent({ responseObject, type }) {
   };
 
   return (
-    <div>
-      <h1>Synonyms</h1>
+    <div className="synonym-div">
+      <h1 id="synonym-header">Synonyms</h1>
       <ul className="synonyms">
         {getSynonyms().map((synonym, index) => (
-          <li key={index}>{synonym}</li>
+          <li className="syn-list-item" key={index}>
+            {synonym}
+          </li>
         ))}
       </ul>
     </div>

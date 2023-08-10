@@ -1,0 +1,23 @@
+.synonym-div {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  align-items: center;
+
+  #synonym-header {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .synonyms {
+    display: flex;
+    margin: 0;
+    gap: 4rem;
+    padding: 0;
+    align-items: center;
+
+    .syn-list-item {
+      list-style: none;
+    }
+  }
+}

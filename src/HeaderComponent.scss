@@ -1,0 +1,29 @@
+.header-left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    width: 1.75344rem;
+    height: 2rem;
+  }
+}
+
+.header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: solid 1px black;
+  gap: 8px;
+
+  .check,
+  .moon {
+    height: 1.25rem;
+    width: auto;
+  }
+}
+
+.dropdown {
+  background-color: transparent;
+  --bs-btn-font-size: 0.875rem;
+}

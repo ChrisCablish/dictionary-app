@@ -3,7 +3,7 @@ import DropdownButton from "./DropdownButton";
 import logo from "./starter-code/assets/images/logo.svg"; // import the image
 import nightMode from "./starter-code/assets/images/icon-moon.svg"; // import the image
 
-import "./HeaderComponent.css";
+import "./HeaderComponent.scss";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -23,8 +23,8 @@ export default function Header({ setFont, font, setCssClass, setDisplayMode }) {
           />
         </Col>
         <Col xs="auto" className="header-right">
-          <Check setDisplayMode={setDisplayMode} />
-          <img alt="" src={nightMode}></img>
+          <Check className="check" setDisplayMode={setDisplayMode} />
+          <img alt="" src={nightMode} className="moon"></img>
         </Col>
       </Row>
     </Container>
