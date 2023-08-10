@@ -6,14 +6,6 @@ import React from "react";
 export default function MeaningComponent({ responseObject, type }) {
   return (
     <ul>
-      {/* {responseObject.map((object, index) => {
-        if (object.meanings[0].partOfSpeech === type) {
-          return object.meanings[0].definitions.map((definition, defIndex) => (
-            <li key={index + "_" + defIndex}>{definition.definition}</li>
-          ));
-        }
-        return null; // Return null if the condition is not met
-      })} */}
       {responseObject.map((object, index) => {
         return object.meanings.map((meaning, meanInd) => {
           if (meaning.partOfSpeech === type) {

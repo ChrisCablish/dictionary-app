@@ -14,15 +14,5 @@ export default function TypeComponent({ responseObject, type }) {
       <MeaningComponent responseObject={responseObject} type={type} />
       <SynonymComponent responseObject={responseObject} type={type} />
     </Container>
-
-    // <div className="typeComponent">
-    //   <h1>{type}</h1>
-    //   <h2>meanings</h2>
-    //   <MeaningComponent responseObject={responseObject} type={type} />
-    //   <div className="synonyms">
-    //     <h2>Synonyms</h2>
-    //     <p className="synonyms-displayed"></p>
-    //   </div>
-    // </div>
   );
 }
