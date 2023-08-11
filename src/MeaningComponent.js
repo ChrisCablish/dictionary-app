@@ -6,12 +6,15 @@ import "./MeaningComponent.scss";
 
 export default function MeaningComponent({ responseObject, type }) {
   return (
-    <ul>
+    <ul className="list">
       {responseObject.map((object, index) => {
         return object.meanings.map((meaning, meanInd) => {
           if (meaning.partOfSpeech === type) {
             return meaning.definitions.map((definition, defInd) => (
-              <li key={index + "_" + meanInd + "_" + defInd}>
+              <li
+                className="meaning-item"
+                key={index + "_" + meanInd + "_" + defInd}
+              >
                 {definition.definition}
               </li>
             ));

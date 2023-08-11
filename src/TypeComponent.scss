@@ -2,13 +2,39 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  border: 1px solid black;
+  border-top: 1px solid black;
+  margin-top: 2rem;
 }
 
 #type-header {
   font-size: 1.125rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.header-container::before {
+  height: 1.5rem;
+  width: 1rem;
+  background-color: white;
+  content: "";
+  position: absolute;
+  left: -1rem;
+}
+
+.header-container {
+  width: fit-content;
+  padding-right: 1rem;
+  position: absolute;
+  transform: translate(0, -50%);
+  background-color: white;
 }
 
 #meaning {
   font-size: 1rem;
+  margin-top: 2.5rem;
+}
+
+.example {
+  font-size: 0.9375rem;
+  margin-bottom: 1.5rem;
 }

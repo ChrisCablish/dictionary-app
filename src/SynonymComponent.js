@@ -1,32 +1,38 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "./SynonymComponent.scss";
 
 export default function SynonymComponent({ responseObject, type }) {
-  // Function to extract the synonyms based on the type
-  const getSynonyms = () => {
-    let synonyms = [];
-
+  // Extract synonyms based on the type using useMemo for optimization
+  const synonyms = useMemo(() => {
+    let synonymsSet = new Set(); // Using Set to ensure unique synonyms
     for (let item of responseObject) {
       for (let meaning of item.meanings) {
         if (meaning.partOfSpeech === type) {
-          synonyms.push(...meaning.synonyms);
+          for (let synonym of meaning.synonyms) {
+            synonymsSet.add(synonym);
+          }
         }
       }
-      if (synonyms.length >= 3) break;
+      if (synonymsSet.size >= 3) break; // Adjusted for Set's size property
     }
-    return synonyms.slice(0, 3);
-  };
+    return Array.from(synonymsSet).slice(0, 3); // Convert Set back to Array
+  }, [responseObject, type]);
 
   return (
     <div className="synonym-div">
-      <h1 id="synonym-header">Synonyms</h1>
-      <ul className="synonyms">
-        {getSynonyms().map((synonym, index) => (
-          <li className="syn-list-item" key={index}>
-            {synonym}
-          </li>
-        ))}
-      </ul>
+      {synonyms.length > 0 && (
+        <>
+          <h1 id="synonym-header">Synonyms</h1>
+          <ul className="synonyms">
+            {synonyms.map((synonym, index) => (
+              // Using combination of synonym and index as key
+              <li className="syn-list-item" key={synonym + "-" + index}>
+                {synonym}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }

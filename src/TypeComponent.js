@@ -12,7 +12,7 @@ export default function TypeComponent({ responseObject, type }) {
       for (let meaning of object.meanings) {
         for (let definition of meaning.definitions) {
           if (definition.hasOwnProperty("example")) {
-            return <span>"{definition.example}"</span>;
+            return <span className="example">"{definition.example}"</span>;
           }
         }
       }
@@ -20,7 +20,9 @@ export default function TypeComponent({ responseObject, type }) {
   };
   return (
     <Container className="typeComponent">
-      <h1 id="type-header">{type}</h1>
+      <div className="header-container">
+        <h1 id="type-header">{type}</h1>
+      </div>
       <h2 id="meaning">Meaning</h2>
       <MeaningComponent responseObject={responseObject} type={type} />
       <SynonymComponent responseObject={responseObject} type={type} />

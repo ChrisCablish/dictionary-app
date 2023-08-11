@@ -49,10 +49,45 @@
   border: 1px solid black;
   outline: none;
   border-radius: 8px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
-.search-column {
+#search-column {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.search-icon {
+  height: 0.97188rem;
+  width: 0.97188rem;
+}
+
+.source-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: 1px solid black;
+  padding-top: 1.5rem;
+  padding-bottom: 5rem;
+
+  .source-content:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .source-header,
+  .source-content {
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .link-and-icon {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 }

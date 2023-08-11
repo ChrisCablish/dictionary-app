@@ -7,6 +7,7 @@ import { useState } from "react";
 import WordComponent from "./WordComponent";
 import TypeComponent from "./TypeComponent";
 import "./App.scss";
+import linkIcon from "./starter-code/assets/images/icon-new-window.svg";
 
 function App() {
   const [font, setFont] = useState("Sans Serif");
@@ -33,8 +34,16 @@ function App() {
     return data;
   };
 
-  const getSource = () => {
-    return "This is the source";
+  let URL = null;
+  const getSource = (responseObject) => {
+    for (let object of responseObject) {
+      if (!URL) {
+        if (object.sourceUrls.length) {
+          URL = object.sourceUrls[0];
+        }
+      }
+    }
+    return URL;
   };
 
   const types = ["noun", "verb", "adjective"];
@@ -87,10 +96,15 @@ function App() {
         <TypeComponent responseObject={responseObject} type={types[2]} />
       )}
 
-      <div className="source-div">
-        <h2>Source</h2>
-        <span>{getSource()}</span>
-      </div>
+      {responseObject && (
+        <Container className="source-div">
+          <h2 className="source-header">Source</h2>
+          <div className="link-and-icon">
+            <span className="source-content">{getSource(responseObject)}</span>
+            <img src={linkIcon}></img>
+          </div>
+        </Container>
+      )}
     </div>
   );
 }
