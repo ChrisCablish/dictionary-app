@@ -3,4 +3,11 @@
     border: none !important;
 }
 
+.form-check-input:focus {
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+
+
   

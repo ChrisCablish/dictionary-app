@@ -1,16 +1,63 @@
-.btn {
-  //font
-  --bs-btn-color: black !important;
-  --bs-btn-hover-color: black !important;
-  --bs-btn-active-color: black !important;
-  --bs-btn-disabled-color: black !important;
-  //background
+.dropdown-light {
+  //font-color
+  --bs-btn-color: #2d2d2d !important;
+  --bs-btn-hover-color: #2d2d2d !important;
+  --bs-btn-active-color: #2d2d2d !important;
+  --bs-btn-disabled-color: #2d2d2d !important;
+  //background-color
   --bs-btn-bg: transparent !important;
   --bs-btn-hover-bg: transparent !important;
   --bs-btn-active-bg: transparent !important;
-  //border
+  //border-color
   --bs-btn-border-color: transparent !important;
-  --bs-btn-hover-border-color: black !important;
+  --bs-btn-hover-border-color: transparent !important;
+  --bs-btn-focus-border-color: transparent !important;
+  --bs-btn-active-border-color: transparent !important;
   //font size
   --bs-btn-font-size: 0.875rem !important;
+}
+
+.dropdown-dark {
+  //font-color
+  --bs-btn-color: white !important;
+  --bs-btn-hover-color: white !important;
+  --bs-btn-active-color: white !important;
+  --bs-btn-disabled-color: white !important;
+  //background-color
+  --bs-btn-bg: transparent !important;
+  --bs-btn-hover-bg: transparent !important;
+  --bs-btn-active-bg: transparent !important;
+  //border-color
+  --bs-btn-border-color: transparent !important;
+  --bs-btn-hover-border-color: transparent !important;
+  --bs-btn-focus-border-color: transparent !important;
+  --bs-btn-active-border-color: transparent !important;
+  //font size
+  --bs-btn-font-size: 0.875rem !important;
+}
+
+.dropdown-menu-light {
+  --bs-dropdown-link-color: #2d2d2d !important;
+  --bs-dropdown-bg: white !important;
+  --bs-dropdown-border-color: #2d2d2d !important;
+  --bs-dropdown-link-active-bg: transparent !important;
+}
+
+.dropdown-menu-dark {
+  --bs-dropdown-link-color: white !important;
+  --bs-dropdown-bg: #050505 !important;
+  --bs-dropdown-border-color: white !important;
+  --bs-dropdown-link-active-bg: transparent !important;
+}
+
+.dropdown-toggle {
+  filter: hue-rotate(90deg); /* Adjust the value as needed */
+}
+
+#dropdown-basic {
+  font-size: 0.875rem;
+}
+
+.dropdown-item {
+  font-size: 0.875rem;
 }

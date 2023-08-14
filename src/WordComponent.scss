@@ -9,12 +9,17 @@
 
   .word {
     font-size: 2rem;
+    font-weight: 700;
+    word-wrap: break-word;
+    max-width: 100%;
 
     margin: 0;
     padding: 0;
   }
 
   .phonetic {
+    color: var(--font-purple);
+    font-size: 1.125rem;
   }
 }
 

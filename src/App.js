@@ -61,6 +61,7 @@ function App() {
         setFont={setFont}
         setCssClass={setCssClass}
         setDisplayMode={setDisplayMode}
+        displayMode={displayMode}
       />
       <Container className="search-section">
         <Row>
@@ -98,11 +99,26 @@ function App() {
 
       {responseObject && (
         <Container className="source-div">
-          <h2 className="source-header">Source</h2>
-          <div className="link-and-icon">
-            <span className="source-content">{getSource(responseObject)}</span>
-            <img src={linkIcon}></img>
-          </div>
+          <Row>
+            <Col sm>
+              <h2 className="source-header">Source</h2>
+            </Col>
+            <Col sm className="link-and-icon">
+              {/* <div className="link-and-icon"> */}
+              {/* <span className="source-content"> */}
+              <a
+                className="source-content"
+                href={getSource(responseObject)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {getSource(responseObject)}
+              </a>
+              {/* </span> */}
+              <img src={linkIcon} alt=""></img>
+              {/* </div> */}
+            </Col>
+          </Row>
         </Container>
       )}
     </div>

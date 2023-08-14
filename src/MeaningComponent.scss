@@ -1,6 +1,18 @@
 .meaning-item {
   font-size: 0.9375rem;
   margin-top: 0.81rem;
+
+  list-style-type: none; /* Hide the default bullet */
+  position: relative;
+  // padding-left: 0.5em; /* Make space for the custom bullet */
+}
+
+.meaning-item::before {
+  content: "•"; /* The bullet character */
+  position: absolute;
+  left: -1em;
+  color: var(--font-purple); /* Set the bullet color */
+  font-size: 1em;
 }
 
 .list {
