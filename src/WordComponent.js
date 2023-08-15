@@ -8,9 +8,16 @@ import "./WordComponent.scss";
 export default function WordComponent({ responseObject }) {
   const word = responseObject[0].word; //not working
   const phonetic = responseObject[0].phonetic;
-  const audio = new Audio(responseObject[0].phonetics[0].audio);
 
   const playAudio = () => {
+    const audioSource = responseObject[0]?.phonetics[0]?.audio;
+
+    if (!audioSource) {
+      alert("No audio available for this word.");
+      return;
+    }
+
+    const audio = new Audio(audioSource);
     audio.play();
   };
 

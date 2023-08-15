@@ -8,6 +8,8 @@ import WordComponent from "./WordComponent";
 import TypeComponent from "./TypeComponent";
 import "./App.scss";
 import linkIcon from "./starter-code/assets/images/icon-new-window.svg";
+import "./AllComponents.scss";
+import ErrorComponent from "./ErrorComponent";
 
 function App() {
   const [font, setFont] = useState("Sans Serif");
@@ -15,21 +17,31 @@ function App() {
   const [displayMode, setDisplayMode] = useState("light-mode");
   const [userInput, setUserInput] = useState("");
   const [responseObject, setResponseObject] = useState(null);
+  const [errorState, setErrorState] = useState(false);
 
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
   };
 
   const handleSearchClick = async () => {
-    const response = await fetchWord(userInput);
-    console.log(response);
-    setResponseObject(response);
+    try {
+      const response = await fetchWord(userInput);
+      setResponseObject(response);
+      setErrorState(false);
+    } catch (error) {
+      console.error(error.message);
+      setErrorState(true);
+      return;
+    }
   };
 
   const fetchWord = async (userInput) => {
     const response = await fetch(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${userInput}`
     );
+    if (!response.ok) {
+      throw new Error("Not a valid word");
+    }
     const data = await response.json();
     return data;
   };
@@ -55,72 +67,109 @@ function App() {
   };
 
   return (
-    <div className={`App ${cssClass} ${displayMode}`}>
-      <Header
-        font={font}
-        setFont={setFont}
-        setCssClass={setCssClass}
-        setDisplayMode={setDisplayMode}
-        displayMode={displayMode}
-      />
-      <Container className="search-section">
-        <Row>
-          <Col className="search-holder">
-            <input
-              type="text"
-              className="userInput"
-              placeholder="Search..."
-              onChange={handleInputChange}
-            ></input>
-          </Col>
-          <Col xs="auto" id="search-column">
-            <img
-              alt=""
-              src={searchIcon}
-              onClick={handleSearchClick}
-              className="search-icon"
-            ></img>
-          </Col>
-        </Row>
-      </Container>
-      {responseObject && <WordComponent responseObject={responseObject} />}
-
-      {responseObject && checkIfTypeExists(types[0]) && (
-        <TypeComponent responseObject={responseObject} type={types[0]} />
-      )}
-
-      {responseObject && checkIfTypeExists(types[1]) && (
-        <TypeComponent responseObject={responseObject} type={types[1]} />
-      )}
-
-      {responseObject && checkIfTypeExists(types[2]) && (
-        <TypeComponent responseObject={responseObject} type={types[2]} />
-      )}
-
-      {responseObject && (
-        <Container className="source-div">
+    <div
+      className={
+        (displayMode === "dark-mode" ? "global-dark" : "") + " all-components"
+      }
+    >
+      <div className={`App ${cssClass} ${displayMode}`}>
+        <Header
+          font={font}
+          setFont={setFont}
+          setCssClass={setCssClass}
+          setDisplayMode={setDisplayMode}
+          displayMode={displayMode}
+        />
+        <Container
+          className={
+            (displayMode === "dark-mode" ? "dark-search" : "") +
+            " search-section"
+          }
+        >
           <Row>
-            <Col sm>
-              <h2 className="source-header">Source</h2>
+            <Col
+              className={
+                errorState === true ? "red-outline" : "" + " search-holder"
+              }
+            >
+              <input
+                value={userInput}
+                className={
+                  (displayMode === "dark-mode" ? "white-text" : "") +
+                  " userInput"
+                }
+                type="text"
+                placeholder="Search..."
+                onChange={handleInputChange}
+              ></input>
             </Col>
-            <Col sm className="link-and-icon">
-              {/* <div className="link-and-icon"> */}
-              {/* <span className="source-content"> */}
-              <a
-                className="source-content"
-                href={getSource(responseObject)}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {getSource(responseObject)}
-              </a>
-              {/* </span> */}
-              <img src={linkIcon} alt=""></img>
-              {/* </div> */}
+            <Col xs="auto" id="search-column">
+              <img
+                alt=""
+                src={searchIcon}
+                onClick={handleSearchClick}
+                className="search-icon"
+              ></img>
             </Col>
           </Row>
         </Container>
-      )}
+
+        {errorState && <ErrorComponent />}
+
+        {responseObject && !errorState && (
+          <WordComponent responseObject={responseObject} />
+        )}
+
+        {responseObject && checkIfTypeExists(types[0]) && !errorState && (
+          <TypeComponent
+            responseObject={responseObject}
+            type={types[0]}
+            displayMode={displayMode}
+          />
+        )}
+
+        {responseObject && checkIfTypeExists(types[1]) && !errorState && (
+          <TypeComponent
+            responseObject={responseObject}
+            type={types[1]}
+            displayMode={displayMode}
+          />
+        )}
+
+        {responseObject && checkIfTypeExists(types[2]) && !errorState && (
+          <TypeComponent
+            responseObject={responseObject}
+            type={types[2]}
+            displayMode={displayMode}
+          />
+        )}
+
+        {responseObject && !errorState && (
+          <Container className="source-div">
+            <Row className="source-row">
+              <Col sm className="header-column">
+                <h2 className="source-header">Source</h2>
+              </Col>
+              <Col sm className="link-and-icon">
+                <a
+                  className={
+                    displayMode === "dark-mode"
+                      ? "source-content-dark-mode"
+                      : "source-content-light-mode"
+                  }
+                  href={getSource(responseObject)}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {getSource(responseObject)}
+                </a>
+
+                <img src={linkIcon} alt=""></img>
+              </Col>
+            </Row>
+          </Container>
+        )}
+      </div>
     </div>
   );
 }

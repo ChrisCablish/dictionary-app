@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-export default function TypeComponent({ responseObject, type }) {
+export default function TypeComponent({ responseObject, type, displayMode }) {
   const getExample = () => {
     for (let object of responseObject) {
       for (let meaning of object.meanings) {
@@ -20,7 +20,12 @@ export default function TypeComponent({ responseObject, type }) {
   };
   return (
     <Container className="typeComponent">
-      <div className="header-container">
+      <div
+        className={
+          (displayMode === "dark-mode" ? "hc-dark" : "hc-light") +
+          " header-container"
+        }
+      >
         <h1 id="type-header">{type}</h1>
       </div>
       <h2 id="meaning">Meaning</h2>

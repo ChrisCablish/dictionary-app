@@ -13,13 +13,23 @@
   font-weight: 700;
 }
 
+.hc-dark {
+  background-color: #050505 !important;
+}
+
+// when the parent doesn't have dark-mode
 .header-container::before {
   height: 1.5rem;
   width: 1rem;
-  background-color: white;
   content: "";
   position: absolute;
   left: -1rem;
+  background-color: white;
+}
+
+//when the parent does have dark mode
+.header-container.hc-dark::before {
+  background-color: black;
 }
 
 .header-container {
