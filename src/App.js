@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import searchIcon from "./starter-code/assets/images/icon-search.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WordComponent from "./WordComponent";
 import TypeComponent from "./TypeComponent";
 import "./App.scss";
@@ -15,9 +15,18 @@ function App() {
   const [font, setFont] = useState("Sans Serif");
   const [cssClass, setCssClass] = useState("sans");
   const [displayMode, setDisplayMode] = useState("light-mode");
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState("keyboard");
   const [responseObject, setResponseObject] = useState(null);
   const [errorState, setErrorState] = useState(false);
+  useEffect(() => {
+    handleSearchClick();
+  }, []);
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearchClick();
+    }
+  };
 
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
@@ -101,6 +110,7 @@ function App() {
                 type="text"
                 placeholder="Search..."
                 onChange={handleInputChange}
+                onKeyPress={handleKeyPress}
               ></input>
             </Col>
             <Col xs="auto" id="search-column">

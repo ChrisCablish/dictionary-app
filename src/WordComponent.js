@@ -10,7 +10,9 @@ export default function WordComponent({ responseObject }) {
   const phonetic = responseObject[0].phonetic;
 
   const playAudio = () => {
-    const audioSource = responseObject[0]?.phonetics[0]?.audio;
+    const audioSource = responseObject[0]?.phonetics.find(
+      (phonetic) => phonetic.audio
+    )?.audio;
 
     if (!audioSource) {
       alert("No audio available for this word.");
