@@ -2,12 +2,12 @@ import Header from "./HeaderComponent";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import searchIcon from "./starter-code/assets/images/icon-search.svg";
+import searchIcon from "./icon-search.svg";
 import { useState, useEffect } from "react";
 import WordComponent from "./WordComponent";
 import TypeComponent from "./TypeComponent";
 import "./App.scss";
-import linkIcon from "./starter-code/assets/images/icon-new-window.svg";
+import linkIcon from "./icon-new-window.svg";
 import "./AllComponents.scss";
 import ErrorComponent from "./ErrorComponent";
 

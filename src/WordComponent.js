@@ -2,7 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import play from "./starter-code/assets/images/icon-play.svg";
+import play from "./icon-play.svg";
 import "./WordComponent.scss";
 
 export default function WordComponent({ responseObject }) {

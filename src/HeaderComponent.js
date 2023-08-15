@@ -1,7 +1,7 @@
 import React from "react";
 import DropdownButton from "./DropdownButton";
-import logo from "./starter-code/assets/images/logo.svg"; // import the image
-import nightMode from "./starter-code/assets/images/icon-moon.svg"; // import the image
+import logo from "./logoTwo.svg"; // import the image
+import nightMode from "./icon-moon.svg"; // import the image
 
 import "./HeaderComponent.scss";
 import Container from "react-bootstrap/Container";
