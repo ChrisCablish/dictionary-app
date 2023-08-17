@@ -12,7 +12,7 @@
 - Initiate search by clicking the search icon or by pressing enter
 - View in varying display widths (mobile, desktop, tablet)
 
-### Tools/skills used
+### tools/skills/concepts used
 
 - React js
 - SaSS
@@ -30,5 +30,5 @@
 
 - The main goal for the next project that i do is to incorporate testing with jest and react testing library into my development process.
 
-Github URL: https://github.com/ChrisCablish/dictionary-app  
-Live Site URL:
+Github URL: https://github.com/ChrisCablish/dictionary-app   
+Live Site URL: https://chriscablish.github.io/dictionary-app/  
